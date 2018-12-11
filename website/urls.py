@@ -1,3 +1,4 @@
+<<<<<<< ef2a831e1f0af20b03b31c6c0d59acd65000e2eb
 """nlpf URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,4 +20,12 @@ from website import views
 
 urlpatterns = [
     path('', views.home),
+=======
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index')
+>>>>>>> App init
 ]
