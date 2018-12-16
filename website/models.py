@@ -14,10 +14,6 @@ class User(models.Model):
     phone_number = models.CharField(max_length=20, default="") # Peut-être 12 : +336XXXXXXXX
     address = models.CharField(max_length=120, default="")  # Pourquoi une addresse ?
 
-
-class Building(models.Model):
-    address = models.CharField()
-
     @property
     def get_full_name(self):
         "Returns the person's full name."
@@ -27,6 +23,7 @@ class Building(models.Model):
     def get_mail_addr(self):
         "Returns the person's full name."
         return '%s' % (self.mail_addr)
+  
 
 class Building(models.Model):
     address = models.CharField(primary_key=True, max_length=254, default="")
