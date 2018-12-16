@@ -8,11 +8,21 @@ def user_directory_path(instance, filename):
     return 'user_{0}/{1}'.format(instance.user.id, filename)
 
 class User(models.Model):
+<<<<<<< Updated upstream
     first_name = models.CharField(max_length=30, default="")
     last_name = models.CharField(max_length=30, default="")
     mail_addr = models.EmailField(primary_key=True, max_length=254, default="")
     phone_number = models.CharField(max_length=20, default="") # Peut-être 12 : +336XXXXXXXX
     address = models.CharField(max_length=120, default="")  # Pourquoi une addresse ?
+=======
+    firstName = models.CharField(max_length=30)
+    lastName = models.CharField(max_length=30)
+    email = models.EmailField(max_length=254)
+    phone = models.PositiveIntegerField()
+
+class Building(models.Model):
+    address = models.CharField()
+>>>>>>> Stashed changes
 
     @property
     def get_full_name(self):
