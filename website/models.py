@@ -27,7 +27,6 @@ class Request(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     building = models.ForeignKey(Building, on_delete=models.CASCADE, default="")
     #FIXED Image Field
-<<<<<<< HEAD
     img = models.ImageField(upload_to=user_directory_path)
     floor = models.PositiveIntegerField(default=0)
     ORIENT = (
@@ -47,28 +46,6 @@ class Request(models.Model):
         ("ONO", "Ouest-Nord-Ouest"),
         ("NO", "Nord-Ouest"),
         ("NNO", "Nord-Nord-Ouest")
-=======
-    img = models.ImageField(upload_to=settings.MEDIA_ROOT + '_' + str(user) +
-            '_' + str(building), default="")
-    floor = models.PositiveSmallIntegerField(default=0)
-    orientation = (
-    ("N", "Nord"),
-    ("NNE", "Nord-Nord-Est"),
-    ("NE", "Nord-Est"),
-    ("ENE", "Est-Nord-Est"),
-    ("E", "Est"),
-    ("SE", "Est-Sud-Est"),
-    ("SE", "Sud-Est"),
-    ("SSE", "Sud-Sud-Est"),
-    ("S", "Sud"),
-    ("SSO", "Sud-Sud-Ouest"),
-    ("SO", "Sud-Ouest"),
-    ("OSO", "Ouest-Sud-Ouest"),
-    ("O", "Ouest"),
-    ("ONO", "Ouest-Nord-Ouest"),
-    ("NO", "Nord-Ouest"),
-    ("NNO", "Nord-Nord-Ouest")
->>>>>>> Added front to home page
     )
     orientation = models.CharField(max_length=3, choices=ORIENT, default="N")
     clean_date = models.DateTimeField("cleaning date")
