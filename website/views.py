@@ -15,6 +15,9 @@ def profile(request):
 def signup(request):
 	return render(request, 'signup.html', {})
 
+def connect(request):
+	return render(request, 'connect.html', {})
+
 def submittedTickets(request):
 	return render(request, 'submittedTickets.html', {})
 
