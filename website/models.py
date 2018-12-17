@@ -22,24 +22,28 @@ class Request(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
     #FIXED Image Field
-    img = models.ImageField(upload_to=settings.MEDIA_ROOT + '_' + str(user) + '_' + str(building))
-    floor = models.PositiveSmallIntegerField(default=0)
-    orientation = (
-    ("N", "Nord"),
-    ("NNE", "Nord-Nord-Est"),
-    ("NE", "Nord-Est"),
-    ("ENE", "Est-Nord-Est"),
-    ("E", "Est"),
-    ("SE", "Est-Sud-Est"),
-    ("SE", "Sud-Est"),
-    ("SSE", "Sud-Sud-Est"),
-    ("S", "Sud"),
-    ("SSO", "Sud-Sud-Ouest"),
-    ("SO", "Sud-Ouest"),
-    ("OSO", "Ouest-Sud-Ouest"),
-    ("O", "Ouest"),
-    ("ONO", "Ouest-Nord-Ouest"),
-    ("NO", "Nord-Ouest"),
-    ("NNO", "Nord-Nord-Ouest")
+    img = models.ImageField(upload_to=settings.MEDIA_ROOT + '_' + str(user) + '_' + str(building), default="image/default.png")
+    floor = models.PositiveIntegerField(default=0)
+    ORIENT = (
+        ("N", "Nord"),
+        ("NNE", "Nord-Nord-Est"),
+        ("NE", "Nord-Est"),
+        ("ENE", "Est-Nord-Est"),
+        ("E", "Est"),
+        ("SE", "Est-Sud-Est"),
+        ("SE", "Sud-Est"),
+        ("SSE", "Sud-Sud-Est"),
+        ("S", "Sud"),
+        ("SSO", "Sud-Sud-Ouest"),
+        ("SO", "Sud-Ouest"),
+        ("OSO", "Ouest-Sud-Ouest"),
+        ("O", "Ouest"),
+        ("ONO", "Ouest-Nord-Ouest"),
+        ("NO", "Nord-Ouest"),
+        ("NNO", "Nord-Nord-Ouest")
     )
+    orientation = models.CharField(max_length=3, choices=ORIENT, default="N")
     clean_date = models.DateTimeField("cleaning date")
+
+    def is_img_in_db(self):
+        return self.img
