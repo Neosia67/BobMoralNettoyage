@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Client, Building, Ticket
+from .models import Client, Building, Ticket, User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
@@ -28,7 +28,7 @@ def signUp(request):
 			match = User.objects.get(email=email)
 			return render(request, 'signUp.html', {})
 		except User.DoesNotExist:
-			create_user(username, email=email, password=password)
+			User.objects.create_user(username, email=email, password=password)
 			return render(request, 'signIn.html', {})
 
 
