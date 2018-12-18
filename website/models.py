@@ -16,6 +16,8 @@ class Client(models.Model):
 
 class Building(models.Model):
     address = models.CharField(primary_key=True, max_length=254, default="")
+    complement = models.CharField(max_length=254, default="")
+    floor_nb = models.PositiveIntegerField(default=0)
     owner = models.ForeignKey(Client, on_delete=models.CASCADE, default="None")
     def __str__(self):
         return "%s" % (self.address)
@@ -48,6 +50,12 @@ class Ticket(models.Model):
         ("NO", "Nord-Ouest"),
         ("NNO", "Nord-Nord-Ouest")
     )
+    STAT = (
+    ("EC", "En Cours"),
+    ("AC", "Accepté"),
+    ("RE", "Refusé")
+    )
+    status = models.CharField(max_length=10, choices=STAT, default="En Cours")
     orientation = models.CharField(max_length=20, choices=ORIENT, default="Nord")
     clean_date = models.DateTimeField("cleaning date")
 
