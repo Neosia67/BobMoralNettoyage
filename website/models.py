@@ -47,7 +47,7 @@ class Request(models.Model):
         ("NO", "Nord-Ouest"),
         ("NNO", "Nord-Nord-Ouest")
     )
-    orientation = models.CharField(max_length=3, choices=ORIENT, default="N")
+    orientation = models.CharField(max_length=20, choices=ORIENT, default="Nord")
     clean_date = models.DateTimeField("cleaning date")
 
     def is_img_in_db(self):

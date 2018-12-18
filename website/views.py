@@ -27,10 +27,7 @@ def submittedTickets(request):
 
 #Ticket detail, raises 404 error if the ticket is not found
 def ticket(request, ticket_id):
-	try:
-		ticket = Request.objects.get(pk=ticket_id)
-	except Request.DoesNotExist:
-		raise Http404("Ticket does not exist")
+	ticket = get_object_or_404(Request, pk=ticket_id)
 	return render(request, 'ticket.html', {'ticket': ticket})
 
 def ticketForm(request):
