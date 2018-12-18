@@ -34,5 +34,36 @@
 			</div>
 		</div>
 	</nav>
-	<p>Submitted tickets</p>
+	
+	<div class="container">
+		{% for ticket in ticket_list %}
+		{% endfor %}
+		<div class="well">
+			<div class="media">
+				<a class="pull-left" href="">
+					<img class="media-object" src="http://placekitten.com/150/150">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">{{ticket.address}}Adresse</h4>
+					<p>{{ticket.complement}}Complement</p>
+					<ul class="list-inline list-unstyled">
+						<li><span><i class="glyphicon glyphicon-calendar"></i> {{ticket.date}} Date</span></li>
+						<li>|</li>
+						<li><span><i class="glyphicon glyphicon-time"></i> {{ticket.time}}Heure</span></li>
+						<li>|</li>
+						<li><span><i class="glyphicon glyphicon-ok-circle"></i> {{ticket.status}}Statut</span></li>
+						<li>|</li>
+					</ul>
+					<div class="row">
+						<form>
+							<input type="text" name="id" id="id" value="{{ticket.id}}" hidden="">
+							<button type="submit" class="btn btn-primary" style="margin-left: 20px">Accepter</button>
+							<button type="submit" class="btn btn-danger">Refuser</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </body>
