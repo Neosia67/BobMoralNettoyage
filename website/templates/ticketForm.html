@@ -42,35 +42,35 @@
 		<form>
 			<div class="form-group">
 				<label for="building">Sélectionnez le bâtiment</label>
-				<select class="form-control" name="building" id="building">
+				<select class="form-control" name="building" id="building" required>
 					<option>1</option>
 					<option>2</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label for="floor">Étage</label>
-				<input type="number" class="form-control" name="floor" id="floor" placeholder="0">
+				<input type="number" class="form-control" name="floor" id="floor" placeholder="0" required>
 				<small id="floorHelp" class="form-text text-muted">L'étage auquel se trouve le tag.</small>
 			</div>
 			<div class="form-group">
 				<label>Orientation</label>
-				<select class="form-control" name="orientation" id="orientation">
+				<select class="form-control" name="orientation" id="orientation" required>
 					<option>1</option>
 					<option>2</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label for="inputFile">Photo du tag</label>
-				<input type="file" class="form-control-file" name="inputFile" id="inputFile" aria-describedby="fileHelp">
+				<input type="file" class="form-control-file" name="inputFile" id="inputFile" aria-describedby="fileHelp" required>
 				<small id="fileHelp" class="form-text text-muted">Importez une image au format .jpg ou .png</small>
 			</div>
 			<div class="form-group">
 				<label for="date">Date</label>
-				<input type="date" class="form-control" name="date" id="date" placeholder="jj/mm/aaaa">
+				<input type="date" class="form-control" name="date" id="date" placeholder="jj/mm/aaaa" required>
 			</div>
 			<div class="form-group">
 				<label for="hour">Heure</label>
-				<input type="time" class="form-control" name="hour" id="hour" placeholder="0">
+				<input type="time" class="form-control" name="hour" id="hour" placeholder="0" required>
 			</div>
 			<button type="submit" class="btn btn-primary">Valider</button>
 		</form>

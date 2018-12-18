@@ -37,5 +37,58 @@
 			</div>
 		</div>
 	</nav>
-	<p>Profile</p>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 ">
+					<div class="list-group ">
+					<a href="{% url 'profile' %}" class="list-group-item list-group-item-action active">Mon profil</a>
+					<a href="{% url 'buildings' %}" class="list-group-item list-group-item-action">Mes bâtiments</a>
+				</div> 
+			</div>
+			<div class="col-md-9">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Mon profil</h4>
+								<hr>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<form>
+									<div class="form-group row">
+										<label for="email" class="col-4 col-form-label">Email</label> 
+										<div class="col-8">
+											{{user.email}}
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="firstname" class="col-4 col-form-label">Prénom</label> 
+										<div class="col-8">
+											{{user.firstname}}
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="lastname" class="col-4 col-form-label">Nom</label> 
+										<div class="col-8">
+											{{user.lastname}}
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="telephone" class="col-4 col-form-label">Téléphone</label> 
+										<div class="col-8">
+											{{user.telephone}}
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>

@@ -14,6 +14,9 @@ def planning(request):
 def profile(request):
 	return render(request, 'profile.html', {})
 
+def buildings(request):
+	return render(request, 'buildings.html', {})
+
 def signup(request):
 	return render(request, 'signup.html', {})
 
