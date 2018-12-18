@@ -10,6 +10,6 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('connect/', views.connect, name='connect'),
     path('submittedTickets/', views.submittedTickets, name='submittedTickets'),
-    path('ticket/<int:request_id>/', views.ticket, name='ticket'),
+    path('ticket/<int:ticket_id>/', views.ticket, name='ticket'),
     path('ticketForm/', views.ticketForm, name='ticketForm'),
 ]

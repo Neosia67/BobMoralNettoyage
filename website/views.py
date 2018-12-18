@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-from .models import User, Building, Request
+from .models import User, Building, Ticket
 
 def home(request):
 	return render(request, 'home.html', {})
@@ -27,7 +27,7 @@ def submittedTickets(request):
 
 #Ticket detail, raises 404 error if the ticket is not found
 def ticket(request, ticket_id):
-	ticket = get_object_or_404(Request, pk=ticket_id)
+	ticket = get_object_or_404(Ticket, pk=ticket_id)
 	return render(request, 'ticket.html', {'ticket': ticket})
 
 def ticketForm(request):

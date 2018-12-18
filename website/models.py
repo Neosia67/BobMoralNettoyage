@@ -23,7 +23,7 @@ def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return 'user_{0}/{1}'.format(instance.user.mail_addr, filename)
 
-class Request(models.Model):
+class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     building = models.ForeignKey(Building, on_delete=models.CASCADE, default="")
     #FIXED Image Field
