@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/static/css/planning.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<title>Planning</title>
@@ -34,5 +35,41 @@
 			</div>
 		</div>
 	</nav>
-	<p>Planning</p>
+	
+	<div class="container">
+		<h2>Agenda</h2>
+		<hr />
+		<div class="agenda">
+			<div class="table-responsive">
+				<table class="table table-condensed table-bordered">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Heure</th>
+							<th>Ticket</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Single event in a single day -->
+						<tr>
+							<td class="agenda-date" class="active" rowspan="1">
+								<div class="dayofmonth">24</div>
+								<div class="dayofweek">12/2018</div>
+							</td>
+							<td class="agenda-time">
+								5:30 AM
+							</td>
+							<td class="agenda-events">
+								<div class="agenda-event">
+									Effacage
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
 </body>
