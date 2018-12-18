@@ -42,7 +42,6 @@
 	</nav>
 	
 	<div class="container">
-		{{ticket_list}}
 		{% for ticket in ticket_list %}
 		<div class="well">
 			<div class="media">
@@ -50,14 +49,12 @@
 					<img class="media-object" src="http://placekitten.com/150/150">
 				</a>
 				<div class="media-body">
-					<h4 class="media-heading">{{ticket.address}}Adresse</h4>
-					<p>{{ticket.complement}}Complement</p>
+					<h4 class="media-heading">{{ticket.building.address}}</h4>
+					<p>{{ticket.building.complement}}</p>
 					<ul class="list-inline list-unstyled">
-						<li><span><i class="glyphicon glyphicon-calendar"></i> {{ticket.date}} Date</span></li>
+						<li><span><i class="glyphicon glyphicon-calendar"></i> {{ticket.clean_date}}</span></li>
 						<li>|</li>
-						<li><span><i class="glyphicon glyphicon-time"></i> {{ticket.time}}Heure</span></li>
-						<li>|</li>
-						<li><span><i class="glyphicon glyphicon-ok-circle"></i> {{ticket.status}}Statut</span></li>
+						<li><span><i class="glyphicon glyphicon-ok-circle"></i> {{ticket.status}}</span></li>
 						<li>|</li>
 					</ul>
 				</div>
