@@ -1,10 +1,11 @@
 import os
 from django.conf import settings
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
-class User(models.Model):
+class Client(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     first_name = models.CharField(max_length=30, default="")
     last_name = models.CharField(max_length=30, default="")
     mail_addr = models.EmailField(primary_key=True, max_length=254, default="")
@@ -15,16 +16,16 @@ class User(models.Model):
 
 class Building(models.Model):
     address = models.CharField(primary_key=True, max_length=254, default="")
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, default="None")
+    owner = models.ForeignKey(Client, on_delete=models.CASCADE, default="None")
     def __str__(self):
         return "%s" % (self.address)
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'user_{0}/{1}'.format(instance.user.mail_addr, filename)
+    return 'client_{0}/{1}'.format(instance.user.mail_addr, filename)
 
 class Ticket(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Client, on_delete=models.CASCADE)
     building = models.ForeignKey(Building, on_delete=models.CASCADE, default="")
     #FIXED Image Field
     img = models.ImageField(upload_to=user_directory_path)

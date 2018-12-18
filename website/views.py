@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
-
-from .models import User, Building, Ticket
+from django.contrib.auth import authenticate
+from .models import Client, Building, Ticket
 
 def home(request):
 	return render(request, 'home.html', {})
@@ -21,9 +21,10 @@ def signup(request):
 	return render(request, 'signup.html', {})
 
 def connect(request):
-	email = request.POST['email']
-	password = request.POST['password']
-	user = authenticate(request, email=email, password=password)
+	email = request.POST.get('email')
+	password = request.POST.get('password')
+	user = authenticate(request, mail_addr=email, password=password)
+
 	if user is not None:
 		login(request, user)
         # Redirect to a success page.
