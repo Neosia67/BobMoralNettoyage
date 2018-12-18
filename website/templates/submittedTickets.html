@@ -36,8 +36,9 @@
 	</nav>
 	
 	<div class="container">
+		{{ticket_list}}
 		{% for ticket in ticket_list %}
-		{% endfor %}
+		
 		<div class="well">
 			<div class="media">
 				<a class="pull-left" href="">
@@ -64,6 +65,6 @@
 				</div>
 			</div>
 		</div>
-
+		{% endfor %}
 	</div>
 </body>

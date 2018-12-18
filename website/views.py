@@ -55,7 +55,7 @@ def buildings(request):
 @login_required(login_url='auth')
 def submittedTickets(request):
 	soonest_ticket_list = Ticket.objects.all()
-	context = {'soonest_ticket_list': soonest_ticket_list}
+	context = {'ticket_list': soonest_ticket_list}
 	return render(request, 'submittedTickets.html', context)
 
 @login_required(login_url='auth')
