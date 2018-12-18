@@ -15,7 +15,22 @@ def auth(request):
 		return render(request, 'signIn.html', {})
 
 def signUp(request):
-	return render(request, 'signUp.html', {})
+	username = request.POST.get('username')
+	password = request.POST.get('password')
+	email = request.POST.get('email')
+	user = authenticate(request, username=username, password=password)
+	if user is not None:
+		#User already exists
+		return render(request, 'signUp.html', {})
+	else:
+		#User does not exists
+		try:
+			match = User.objects.get(email=email)
+			return render(request, 'signUp.html', {})
+		except User.DoesNotExist:
+			create_user(username, email=email, password=password)
+			return render(request, 'signIn.html', {})
+
 
 @login_required(login_url='auth')
 def home(request):
