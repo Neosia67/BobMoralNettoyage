@@ -37,5 +37,42 @@
 			</div>
 		</div>
 	</nav>
-	<p>Ticket form</p>
+
+	<div class="container-fluid" style="margin-left: 200px; margin-right: 200px;" >
+		<form>
+			<div class="form-group">
+				<label for="building">Sélectionnez le bâtiment</label>
+				<select class="form-control" id="building">
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="floor">Étage</label>
+				<input type="number" class="form-control" id="floor" placeholder="0">
+				<small id="floorHelp" class="form-text text-muted">L'étage auquel se trouve le tag.</small>
+			</div>
+			<div class="form-group">
+				<label>Orientation</label>
+				<select class="form-control" id="building">
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="inputFile">Photo du tag</label>
+				<input type="file" class="form-control-file" id="inputFile" aria-describedby="fileHelp">
+				<small id="fileHelp" class="form-text text-muted">Importez une image au format .jpg ou .png</small>
+			</div>
+			<div class="form-group">
+				<label for="floor">Date</label>
+				<input type="date" class="form-control" id="floor" placeholder="jj/mm/aaaa">
+			</div>
+			<div class="form-group">
+				<label for="floor">Heure</label>
+				<input type="time" class="form-control" id="floor" placeholder="0">
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
 </body>
