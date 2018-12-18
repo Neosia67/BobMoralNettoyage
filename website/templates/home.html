@@ -27,12 +27,7 @@
 		
 		  <!-- Liens navbar -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			{% if 1 < 2 %} <!--Not connected-->
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{% url 'connect' %}">Se connecter</a></li>
-					<li><a href="{% url 'signup' %}">S'inscrire</a></li>
-				</ul>
-			{% elif 1 > 2 %} <!--Connected-->
+			{% if 1 > 2 %} <!--Connected-->
 				<ul class="nav navbar-nav">
 					<li><a href="{% url 'ticketForm' %}">Soumettre un ticket</a></li>
 					<li><a href="{% url 'myTickets' %}">Mes tickets en cours</a></li>
