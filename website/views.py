@@ -21,7 +21,16 @@ def signup(request):
 	return render(request, 'signup.html', {})
 
 def connect(request):
-	return render(request, 'connect.html', {})
+	email = request.POST['email']
+	password = request.POST['password']
+	user = authenticate(request, email=email, password=password)
+	if user is not None:
+		login(request, user)
+        # Redirect to a success page.
+		return render(request, 'home.html', {})
+	else:
+        # Return an 'invalid login' error message.
+		return render(request, 'connect.html', {})
 
 def submittedTickets(request):
 	soonest_request_list = Request.objects.order_by('clean_date')[:5]
@@ -33,5 +42,5 @@ def ticket(request, ticket_id):
 	ticket = get_object_or_404(Ticket, pk=ticket_id)
 	return render(request, 'ticket.html', {'ticket': ticket})
 
-def ticketForm(request):	
+def ticketForm(request):
 	return render(request, 'ticketForm.html', {})
