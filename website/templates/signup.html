@@ -33,38 +33,50 @@
 		  </div>
 		</div>
 		</nav>
-		
-		<div class="container-fluid" style="margin-left: 200px; margin-right: 900px;" >
-			
+
+		<div class="container">
 			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-			<form>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" class="form-control" name="email" id="email" placeholder="dupont@exemple.fr" required>
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<h4>S'inscrire</h4>
+							<hr>
+						</div>
+						<div class="row">
+							<form>
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" class="form-control" name="email" id="email" placeholder="dupont@exemple.fr" required>
+								</div>
+								<div class="form-group">
+									<label for="lastname">Nom</label>
+									<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Nom" required>
+								</div>
+								<div class="form-group">
+									<label for="firstname">Prénom</label>
+									<input type="text" class="form-control" name="firstname" id="firstname" placeholder="Prénom" required>
+								</div>
+								<div class="form-group">
+									<label for="telephone">Numéro de téléphone</label>
+									<input type="tel" class="form-control" name="telephone" id="telephone" placeholder="06 xx xx xx xx" required>
+								</div>
+								<div class="form-group">
+									<label for="password">Mot de passe</label>
+									<input type="password" class="form-control" name="password" id="password" placeholder="" required>
+									<small id="floorHelp" class="form-text text-muted">Pas de restriction, on est très ouverts.</small>
+								</div>
+								<div class="form-group">
+									<label for="confirm">Confirmation mot de passe</label>
+									<input type="password" class="form-control" name="confirm" id="confirm" placeholder="" required>
+								</div>
+								<button type="submit" class="btn btn-primary">S'inscrire</button>
+							</form>
+						</div>
+					</div>
 				</div>
-				<div class="form-group">
-					<label for="lastname">Nom</label>
-					<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Nom" required>
-				</div>
-				<div class="form-group">
-					<label for="firstname">Prénom</label>
-					<input type="text" class="form-control" name="firstname" id="firstname" placeholder="Prénom" required>
-				</div>
-				<div class="form-group">
-					<label for="telephone">Numéro de téléphone</label>
-					<input type="tel" class="form-control" name="telephone" id="telephone" placeholder="06 xx xx xx xx" required>
-				</div>
-				<div class="form-group">
-					<label for="password">Mot de passe</label>
-					<input type="password" class="form-control" name="password" id="password" placeholder="" required>
-					<small id="floorHelp" class="form-text text-muted">Pas de restriction, on est très ouverts.</small>
-				</div>
-				<div class="form-group">
-					<label for="confirm">Confirmation mot de passe</label>
-					<input type="password" class="form-control" name="confirm" id="confirm" placeholder="" required>
-				</div>
-				<button type="submit" class="btn btn-primary">Se connecter</button>
-					
-			</form>
+			</div>
+			<div class="col-md-3"></div>
 		</div>
 </body>
