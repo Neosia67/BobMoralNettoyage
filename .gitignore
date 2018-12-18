@@ -5,3 +5,4 @@ db.sqlite3
 website/migrations/__pycache__/
 .vscode/
 user_antoine@titi.fr/
+website/migrations/00*

@@ -29,11 +29,11 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="ticket/">Soumettre un ticket</a></li>
-				<li><a href="myTickets/">Mes tickets en cours</a></li>
+				<li><a href="{% url 'ticketForm' %}">Soumettre un ticket</a></li>
+				<li><a href="{% url 'myTickets' %}">Mes tickets en cours</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="profile/">Mon profil</a></li>
+				<li><a href="{% url 'profile' %}">Mon profil</a></li>
 			</ul>
 		</div>
 		</div>
