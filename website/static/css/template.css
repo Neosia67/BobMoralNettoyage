@@ -1,0 +1,12 @@
+.navbar {
+  margin-bottom: 1em;
+}
+
+body {
+  background-image: url("/static/img/Background_KF.png");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-size: cover;
+}
