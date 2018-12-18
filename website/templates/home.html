@@ -8,13 +8,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
+	<title>Bob Moral Nettoyage</title>
 </head>
 
 <body>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
-		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <!--Brand logo-->
 		  <div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 			  <span class="sr-only">Toggle navigation</span>
@@ -22,10 +22,10 @@
 			  <span class="icon-bar"></span>
 			  <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Bob Moral Nettoyage</a>
+			<a class="navbar-brand" href="{% url 'home' %}">Bob Moral Nettoyage</a>
 		  </div>
 		
-		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <!-- Liens navbar -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			{% if 1 < 2 %} <!--Not connected-->
 				<ul class="nav navbar-nav navbar-right">
@@ -40,7 +40,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{% url 'profile' %}">Mon profil</a></li>
 				</ul>
-			{% else %}
+			{% else %} <!--Bob-->
 				<ul class="nav navbar-nav">
 					<li><a href="{% url 'submittedTickets' %}">Tickets</a></li>
 					<li><a href="{% url 'planning' %}">Planning</a></li>
@@ -50,11 +50,39 @@
 		</div>
 	</nav>
 
-	<div class="row">
-		<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
-				<img src="static/img/bob.jpg" alt="">
-			</a>
+<!--Thumbnails-->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail">
+					<img src="static/img/bob.jpg" alt="">
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail">
+					<img src="static/img/bob.jpg" alt="">
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail">
+					<img src="static/img/bob.jpg" alt="">
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail">
+					<img src="static/img/bob.jpg" alt="">
+				</a>
+			</div>
 		</div>
 	</div>
+
+	<div class="container-fluid">
+		<div class="text-center">
+			<h2 style="margin-bottom: 20px">Nettoyage de vos batiments</h2>
+			<p>Bob utilisera sa super panoplie d'outils pour vous débarrasser de tous les dessins et tags qui parasitent vos magnifiques et innocents batiments.</p>
+			<p>En plus de ça, voici un magnifique Lorem Ipsum pour que vous puissiez patienter pendant qu'il vous répond : </p>
+			<p style="margin-right: 300px; margin-left: 300px">Lorem ipsum dolor sit amet, Robinum tu estum trops magnificium. My veboel deleda lidebumab deficil ri vinoe vem, quod loqu lelo, ti liv duv sadacubat. Quoe quohosi meloce letoetanaque, hadem fulyli bemoe, nera tih la. Boe, liqu ma libibi, cadebihe, sifocyd lefa na quemut loeby ral se dil piba dadij. Masoej, bed jab ribe, pejihal syre rysi, lace, holaj mym matibycif veny coepa.</p>
+		</div>
+	</div>
+
 </body>
