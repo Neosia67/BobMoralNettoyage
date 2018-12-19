@@ -14,12 +14,12 @@ def auth(request):
 	if user is not None:
 		login(request, user)
 		client = Client.objects.get(user=user)
-		if client.role == "CLIENT":
+		if client.role == "client":
 			is_a_client = True
 		else:
 			is_a_client = False
-		context = {'is_a_client': is_a_client}
-		return render(request, 'home.html', context)
+		print(client.role, is_a_client)
+		return render(request, 'home.html', {'is_a_client': is_a_client})
 	else:
 		return render(request, 'signIn.html', {})
 
@@ -29,14 +29,17 @@ def signUp(request):
 def addUser(request):
 	username = request.POST.get('username')
 	password = request.POST.get('password')
+	fn = request.POST.get('firstname')
+	ln = request.POST.get('lastname')
 	email = request.POST.get('email')
+	telephone = request.POST.get('telephone')
 	print(username, password, email)
 	user = authenticate(request, username=username, password=password)
 	if user is None:
 		new_user = User.objects.create_user(username, email, password)
 		new_user.is_active = True
 		new_user.save()
-		client = Client(user=new_user, first_name="a", last_name='a', phone_number='0', address='a')
+		client = Client(user=new_user, first_name=fn, last_name=ln, phone_number=telephone)
 		client.save()
 		return redirect('/')
 	redirect('addUser')
@@ -47,8 +50,9 @@ def home(request):
 
 @login_required(login_url='auth')
 def myTickets(request):
-	current_user = request.user
-	my_tickets = Ticket.objects.filter(user=current_user)
+	user = request.user
+	client = Client.objects.filter(user=user)
+	my_tickets = Ticket.objects.filter(user=client[0])
 	context = {'ticket_list': my_tickets}
 	return render(request, 'myTickets.html', context)
 
