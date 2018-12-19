@@ -2,6 +2,9 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Client, Building, Ticket, User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
 
 def auth(request):
 	username = request.POST.get('username')
@@ -75,6 +78,23 @@ def ticketForm(request):
 	client = Client.objects.filter(user=user)
 	building_list = Building.objects.filter(owner=client[0])
 	ticket_list = Ticket.objects.all()
-
 	context = {'building_list': building_list, 'ticket_list': ticket_list}
 	return render(request, 'ticketForm.html', context)
+
+def ticketFormPost(request):
+	user = request.user
+	client = Client.objects.filter(user=user)
+	buildingAddress = request.POST.get('building')
+	building = Building.objects.filter(address=buildingAddress)
+	floor = request.POST.get('floor')
+	orientation = request.POST.get('orientation')
+	photo = 'client_{0}/{1}'.format(client[0].phone_number, request.POST.get('inputFile'))
+	date = request.POST.get('date')
+	hour = request.POST.get('hour')
+	cleanDate = date + ' ' + hour
+	print(building, floor, orientation, date, hour)
+	ticket = Ticket(user=client[0], building=building[0], floor=floor, img=photo, status="EC", orientation=orientation, clean_date=cleanDate)
+	ticket.save()
+	return render(request, 'home.html', {})
+
+	

@@ -15,4 +15,5 @@ urlpatterns = [
     path('ticket/<int:ticket_id>/', views.ticket, name='ticket'),
     path('ticketForm/', views.ticketForm, name='ticketForm'),
     path('addUser/', views.addUser, name='addUser'),
+    path('ticketFormPost/', views.ticketFormPost, name='ticketFormPost'),
 ]
