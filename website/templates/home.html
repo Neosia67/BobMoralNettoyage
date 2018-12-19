@@ -24,10 +24,10 @@
 			</button>
 			<a class="navbar-brand" href="{% url 'home' %}">Bob Moral Nettoyage</a>
 		  </div>
-		
+
 		  <!-- Liens navbar -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			{% if 1 > 2 %} <!--Connected-->
+			{% if is_a_client %} <!--Connected-->
 				<ul class="nav navbar-nav">
 					<li><a href="{% url 'ticketForm' %}">Soumettre un ticket</a></li>
 					<li><a href="{% url 'myTickets' %}">Mes tickets en cours</a></li>

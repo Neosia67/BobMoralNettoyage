@@ -13,7 +13,13 @@ def auth(request):
 	print(username, password, user)
 	if user is not None:
 		login(request, user)
-		return redirect('/home')
+		client = Client.objects.get(user=user)
+		if client.role == "CLIENT":
+			is_a_client = True
+		else:
+			is_a_client = False
+		context = {'is_a_client': is_a_client}
+		return render(request, 'home.html', context)
 	else:
 		return render(request, 'signIn.html', {})
 
@@ -30,7 +36,7 @@ def addUser(request):
 		new_user = User.objects.create_user(username, email, password)
 		new_user.is_active = True
 		new_user.save()
-		client = Client(user=new_user, first_name="a", last_name='a', mail_addr=email, phone_number='0', address='a')
+		client = Client(user=new_user, first_name="a", last_name='a', phone_number='0', address='a')
 		client.save()
 		return redirect('/')
 	redirect('addUser')
@@ -102,5 +108,3 @@ def ticketFormPost(request):
 	ticket = Ticket(user=client[0], building=building[0], floor=floor, img=photo, status="EC", orientation=orientation, clean_date=cleanDate)
 	ticket.save()
 	return render(request, 'home.html', {})
-
-	

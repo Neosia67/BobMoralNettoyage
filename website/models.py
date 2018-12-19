@@ -3,6 +3,12 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 
+
+ROLE_CHOICES = (
+    ('CLIENT', 'client'),
+    ('BOB', 'bob')
+)
+
 # Create your models here.
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default="")
@@ -10,6 +16,7 @@ class Client(models.Model):
     last_name = models.CharField(max_length=30, default="")
     phone_number = models.CharField(primary_key=True, max_length=20, default="") # Peut-être 12 : +336XXXXXXXX
     address = models.CharField(max_length=120, default="")  # Pourquoi une addresse ?
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, null=False, default="client")
     def __str__(self):
         return "%s" % (self.first_name)
 
