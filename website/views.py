@@ -45,7 +45,9 @@ def myTickets(request):
 
 @login_required(login_url='auth')
 def planning(request):
-	return render(request, 'planning.html', {})
+	ticket_list = Ticket.objects.all().order_by('-clean_date')
+	context = {'ticket_list': ticket_list}
+	return render(request, 'planning.html', context)
 
 @login_required(login_url='auth')
 def profile(request):
@@ -69,4 +71,10 @@ def ticket(request, ticket_id):
 
 @login_required(login_url='auth')
 def ticketForm(request):
-	return render(request, 'ticketForm.html', {})
+	user = request.user
+	client = Client.objects.filter(user=user)
+	building_list = Building.objects.filter(owner=client[0])
+	ticket_list = Ticket.objects.all()
+
+	context = {'building_list': building_list, 'ticket_list': ticket_list}
+	return render(request, 'ticketForm.html', context)
