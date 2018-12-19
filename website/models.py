@@ -8,11 +8,10 @@ class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     first_name = models.CharField(max_length=30, default="")
     last_name = models.CharField(max_length=30, default="")
-    mail_addr = models.EmailField(primary_key=True, max_length=254, default="")
-    phone_number = models.CharField(max_length=20, default="") # Peut-être 12 : +336XXXXXXXX
+    phone_number = models.CharField(primary_key=True, max_length=20, default="") # Peut-être 12 : +336XXXXXXXX
     address = models.CharField(max_length=120, default="")  # Pourquoi une addresse ?
     def __str__(self):
-        return "%s" % (self.mail_addr)
+        return "%s" % (self.first_name)
 
 class Building(models.Model):
     address = models.CharField(primary_key=True, max_length=254, default="")
@@ -24,7 +23,7 @@ class Building(models.Model):
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'client_{0}/{1}'.format(instance.user.mail_addr, filename)
+    return 'client_{0}/{1}'.format(instance.user.email, filename)
 
 class Ticket(models.Model):
     user = models.ForeignKey(Client, on_delete=models.CASCADE)

@@ -38,7 +38,10 @@ def home(request):
 
 @login_required(login_url='auth')
 def myTickets(request):
-	return render(request, 'myTickets.html', {})
+	current_user = request.user
+	my_tickets = Ticket.objects.filter(user=current_user)
+	context = {'ticket_list': my_tickets}
+	return render(request, 'myTickets.html', context)
 
 @login_required(login_url='auth')
 def planning(request):
@@ -54,8 +57,8 @@ def buildings(request):
 
 @login_required(login_url='auth')
 def submittedTickets(request):
-	soonest_ticket_list = Ticket.objects.all()
-	context = {'ticket_list': soonest_ticket_list}
+	ticket_list = Ticket.objects.all()
+	context = {'ticket_list': ticket_list}
 	return render(request, 'submittedTickets.html', context)
 
 @login_required(login_url='auth')
