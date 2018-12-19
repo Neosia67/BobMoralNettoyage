@@ -17,4 +17,5 @@ urlpatterns = [
     path('ticketForm/', views.ticketForm, name='ticketForm'),
     path('addUser/', views.addUser, name='addUser'),
     path('ticketFormPost/', views.ticketFormPost, name='ticketFormPost'),
+    path('buildingPost/', views.buildingPost, name='buildingPost'),
 ]

@@ -54,7 +54,7 @@ def myTickets(request):
 
 @login_required(login_url='auth')
 def planning(request):
-	ticket_list = Ticket.objects.all().order_by('-clean_date')
+	ticket_list = Ticket.objects.filter(status='AC').order_by('-clean_date')
 	context = {'ticket_list': ticket_list}
 	return render(request, 'planning.html', context)
 
@@ -62,15 +62,19 @@ def planning(request):
 def profile(request):
 	user = request.user
 	client = Client.objects.filter(user=user)
-	print("MABITE")
-	userr = User.objects.get(username=request.user)
-	print(userr.email)
-	context = {'current_user': client[0], 'email': client}
+	u = User.objects.get(username='theo')
+	print(u)
+	print('Email : ', u.email)
+	context = {'current_user': client[0], 'email': user.email}
 	return render(request, 'profile.html', context)
 
 @login_required(login_url='auth')
 def buildings(request):
-	return render(request, 'buildings.html', {})
+	user = request.user
+	client = Client.objects.filter(user=user)
+	building_list = Building.objects.filter(owner=client[0])
+	context = {'building_list': building_list}
+	return render(request, 'buildings.html', context)
 
 @login_required(login_url='auth')
 def submittedTickets(request):
@@ -107,4 +111,14 @@ def ticketFormPost(request):
 	print(building, floor, orientation, date, hour)
 	ticket = Ticket(user=client[0], building=building[0], floor=floor, img=photo, status="EC", orientation=orientation, clean_date=cleanDate)
 	ticket.save()
-	return render(request, 'home.html', {})
+	return redirect('home')
+
+def buildingPost(request):
+	user = request.user
+	client = Client.objects.filter(user=user)
+	address = request.POST.get('address')
+	complement = request.POST.get('complement')
+	floor_nb = request.POST.get('floors')
+	building = Building(address=address, complement=complement, floor_nb=floor_nb, owner=client[0])
+	building.save()
+	return redirect('buildings')
