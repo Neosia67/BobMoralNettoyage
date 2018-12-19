@@ -54,7 +54,13 @@ def planning(request):
 
 @login_required(login_url='auth')
 def profile(request):
-	return render(request, 'profile.html', {})
+	user = request.user
+	client = Client.objects.filter(user=user)
+	print("MABITE")
+	userr = User.objects.get(username=request.user)
+	print(userr.email)
+	context = {'current_user': client[0], 'email': client}
+	return render(request, 'profile.html', context)
 
 @login_required(login_url='auth')
 def buildings(request):

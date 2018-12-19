@@ -24,7 +24,7 @@
 			</button>
 			<a class="navbar-brand" href="{% url 'home' %}">Bob Moral Nettoyage</a>
 			</div>
-		
+
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
@@ -44,7 +44,7 @@
 					<div class="list-group ">
 					<a href="{% url 'profile' %}" class="list-group-item list-group-item-action active">Mon profil</a>
 					<a href="{% url 'buildings' %}" class="list-group-item list-group-item-action">Mes bâtiments</a>
-				</div> 
+				</div>
 			</div>
 			<div class="col-md-9">
 				<div class="card">
@@ -59,27 +59,27 @@
 							<div class="col-md-12">
 								<form>
 									<div class="form-group row">
-										<label for="email" class="col-4 col-form-label">Email</label> 
+										<label for="email" class="col-4 col-form-label">Email</label>
 										<div class="col-8">
-											{{user.email}}
+											<p>{{ current_user.user.email }}</p>
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="firstname" class="col-4 col-form-label">Prénom</label> 
+										<label for="firstname" class="col-4 col-form-label">Prénom</label>
 										<div class="col-8">
-											{{user.firstname}}
+											{{current_user.first_name}}
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="lastname" class="col-4 col-form-label">Nom</label> 
+										<label for="lastname" class="col-4 col-form-label">Nom</label>
 										<div class="col-8">
-											{{user.lastname}}
+											{{current_user.last_name}}
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="telephone" class="col-4 col-form-label">Téléphone</label> 
+										<label for="telephone" class="col-4 col-form-label">Téléphone</label>
 										<div class="col-8">
-											{{user.telephone}}
+											{{current_user.phone_number}}
 										</div>
 									</div>
 								</form>
