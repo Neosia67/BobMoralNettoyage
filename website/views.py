@@ -45,8 +45,8 @@ def addUser(request):
 	redirect('addUser')
 
 @login_required(login_url='auth')
-def home(request):
-	return render(request, 'home.html', {})
+def home(request, new_context={}):
+	return render(request, 'home.html', new_context)
 
 @login_required(login_url='auth')
 def myTickets(request):
@@ -112,6 +112,10 @@ def ticketFormPost(request):
 	print(building, floor, orientation, date, hour)
 	ticket = Ticket(user=client[0], building=building[0], floor=floor, img=photo, status="EC", orientation=orientation, clean_date=cleanDate)
 	ticket.save()
+	context = {
+		'is_a_client': True
+	}
+	response = home(request, context)
 	return redirect('home')
 
 def buildingPost(request):
