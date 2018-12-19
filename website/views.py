@@ -116,7 +116,7 @@ def ticketFormPost(request):
 		'is_a_client': True
 	}
 	response = home(request, context)
-	return redirect('home')
+	return response
 
 def buildingPost(request):
 	user = request.user
