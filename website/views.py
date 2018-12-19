@@ -66,9 +66,6 @@ def planning(request):
 def profile(request):
 	user = request.user
 	client = Client.objects.filter(user=user)
-	u = User.objects.get(username='theo')
-	print(u)
-	print('Email : ', u.email)
 	context = {'current_user': client[0], 'email': user.email}
 	return render(request, 'profile.html', context)
 
