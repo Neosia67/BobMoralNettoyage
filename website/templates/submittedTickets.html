@@ -51,12 +51,19 @@
 						<li><span><i class="glyphicon glyphicon-ok-circle"></i> {{ticket.status}}</span></li>
 						<li>|</li>
 					</ul>
-					<div class="row">
-						<form>
-							<input type="text" name="id" id="id" value="{{ticket.id}}" hidden="">
-							<button type="submit" class="btn btn-primary" style="margin-left: 20px">Accepter</button>
-							<button type="submit" class="btn btn-danger">Refuser</button>
-						</form>
+					<div class="container-fluid">
+						<div class="">
+							<form method="POST" action="{% url 'acceptTicket' %}"> {% csrf_token %}
+								<input type="text" name="id" id="id" value="{{ticket.id}}" hidden="">
+								<button type="submit" class="btn btn-primary" style="margin-bottom: 0.5em; width: 7em">Accepter</button>
+							</form>
+						</div>
+						<div class="">
+							<form method="POST" action="{% url 'refuseTicket' %}"> {% csrf_token %}
+								<input type="text" name="id" id="id" value="{{ticket.id}}" hidden="">
+								<button type="submit" class="btn btn-danger" style="width: 7em">Refuser</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

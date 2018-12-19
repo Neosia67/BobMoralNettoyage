@@ -18,4 +18,6 @@ urlpatterns = [
     path('addUser/', views.addUser, name='addUser'),
     path('ticketFormPost/', views.ticketFormPost, name='ticketFormPost'),
     path('buildingPost/', views.buildingPost, name='buildingPost'),
+    path('acceptTicket/', views.acceptTicket, name='acceptTicket'),
+    path('refuseTicket/', views.refuseTicket, name='refuseTicket'),
 ]

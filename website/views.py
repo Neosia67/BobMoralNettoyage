@@ -123,3 +123,18 @@ def buildingPost(request):
 	building = Building(address=address, complement=complement, floor_nb=floor_nb, owner=client[0])
 	building.save()
 	return redirect('buildings')
+
+
+def acceptTicket(request):
+	ticket_id = request.POST.get('id')
+	ticket = Ticket.objects.get(id=ticket_id)
+	ticket.status = 'AC'
+	ticket.save()
+	return redirect('submittedTickets')
+
+def refuseTicket(request):
+	ticket_id = request.POST.get('id')
+	ticket = Ticket.objects.get(id=ticket_id)
+	ticket.status = 'RE'
+	ticket.save()
+	return redirect('submittedTickets')
